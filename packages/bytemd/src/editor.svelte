@@ -434,6 +434,12 @@
         on:click={(e) => {
           const headings = previewEl.querySelectorAll('h1,h2,h3,h4,h5,h6')
           headings[e.detail].scrollIntoView()
+
+          // scroll the editor as well
+          editor.scrollIntoView({
+            line: e.detail+1,
+            ch:0
+          })
         }}
         visible={sidebar === 'toc'}
       />
