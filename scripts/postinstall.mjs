@@ -58,6 +58,11 @@ packages.forEach((p) => {
   pkg.exports = {
     '.': {
       types: './dist/index.d.ts',
+      ...(pkg.name === 'bytemd'
+        ? {
+            svelte: './svelte/index.js',
+          }
+        : {}),
       import: './dist/index.mjs',
       require: './dist/index.js',
     },
